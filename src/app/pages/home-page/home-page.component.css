@@ -1,0 +1,25 @@
+.box2 {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #343a40;
+  border-radius: 0.9rem;
+  overflow: auto;
+  position: relative;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+.box2 table {
+  font-family: arial, sans-serif;
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 100%;
+}
+
+.box2 td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  border-radius: 0.9rem;
+  padding: 8px;
+}

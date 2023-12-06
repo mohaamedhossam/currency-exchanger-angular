@@ -1,0 +1,125 @@
+<!-- <div class="App"></div> -->
+<!-- <form class="box" onSubmit="{handleConverte}">
+  <div class="row">
+    <table>
+      <tr>
+        <td>
+          <h6>Amount</h6>
+          <input type="text" value="{value}" onChange="{onChange}" />
+        </td>
+
+        <td style="justify-items: stretch">
+          <div class="currency-selector">
+            <div>
+              <h6>From</h6>
+              <select
+                value="USD"
+                style="pointer-events: initial; background-color: #626466"
+              >
+                <option value="usd">USD</option>
+              </select>
+            </div>
+            <p>⬅️➡️</p>
+            <div>
+              <h6>To</h6>
+              <select value="EGP" onclick="">
+                <option>EUR</option>
+                <option>JPY</option>
+                <option>CYN</option>
+              </select>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="position">
+          <button class="button" type="submit">Convert</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <small class="default-result"> 1 usd = 1.2 eur </small>
+        </td>
+        <td class="position">
+          <strong class="result"> 1 usd = 1 eur </strong>
+          <button class="button" onClick="{}" style="display: initial">
+            More Details
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form> -->
+<app-currency-converter-form
+  [initialValue]="10"
+  [fromCurrency]="'USD'"
+  [toCurrency]="'EUR'"
+  [currencyOptions]="['USD', 'EUR', 'JPY']"
+  (convertCurrency)="handleConversion($event)"
+></app-currency-converter-form>
+
+<div class="box2">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

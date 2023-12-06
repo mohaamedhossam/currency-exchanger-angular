@@ -1,0 +1,55 @@
+/* ******* */
+.FromDetails {
+  color: #ffffff;
+  padding: 1rem;
+  margin: 1rem;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 7.2rem;
+  padding: 0 3.2rem;
+  background-color: #343a40;
+  border-radius: 0.9rem;
+}
+.header ul {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  list-style: none;
+}
+.header ul li {
+  font-size: 1.3rem;
+  /* font-weight: 600; */
+  color: #fff;
+  cursor: pointer;
+}
+.header ul li a {
+  text-decoration: none;
+  color: #fff;
+  /* width: 300px; */
+  border: white 2px solid;
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.logo span {
+  font-size: 3.2rem;
+}
+
+.logo h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+.belowHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3.2rem;
+}

@@ -1,0 +1,56 @@
+<form class="box" (ngSubmit)="handleConvert()">
+  <div class="row">
+    <table>
+      <tr>
+        <td>
+          <h6>Amount</h6>
+          <input
+            type="text"
+            [value]="initialValue"
+            (keyup)="onChange($event)"
+          />
+        </td>
+        <td style="justify-items: stretch">
+          <div class="currency-selector">
+            <div>
+              <h6>From</h6>
+              <select [value]="fromCurrency" (change)="onChange($event)">
+                <option *ngFor="let option of currencyOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+            <p>⬅️➡️</p>
+            <div>
+              <h6>To</h6>
+              <select [value]="toCurrency" (change)="onChange($event)">
+                <option *ngFor="let option of currencyOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="position">
+          <button class="button" type="submit">Convert</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <small class="default-result">
+            1 {{ fromCurrency }} = 1.2 {{ toCurrency }}
+          </small>
+        </td>
+        <td class="position">
+          <strong class="result"> 1 {{ fromCurrency }} = 1 eur </strong>
+          <button class="button" onClick="{}" style="display: initial">
+            More Details
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>

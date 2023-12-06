@@ -1,0 +1,96 @@
+.box {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #343a40;
+  border-radius: 0.9rem;
+  overflow: auto;
+  position: relative;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+}
+.box p {
+  align-self: flex-end;
+  font-size: larger;
+}
+.box select {
+  width: 20rem;
+  height: 3rem;
+  font-size: inherit;
+}
+.currency-selector {
+  display: flex;
+  box-sizing: inherit;
+  width: 50%;
+  margin: auto;
+}
+.button {
+  background-color: #3288dd;
+  color: #ffffff;
+  width: 20rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.disabledButton {
+  background-color: #3288dd;
+  pointer-events: none;
+  opacity: "0.4";
+  color: #ffffff;
+  width: 20rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.position {
+  text-align: center;
+}
+
+.default-result {
+  font-size: small;
+  width: fit-content;
+  border: 3px solid #7e7e7e;
+  padding: 7px 11px;
+  background-color: #1a1d20;
+}
+.result {
+  font-size: x-large;
+  margin-right: 1rem;
+  width: fit-content;
+  border: 3px solid #7e7e7e;
+  padding: 7px 11px;
+  background-color: #1a1d20;
+}
+
+.row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px;
+}
