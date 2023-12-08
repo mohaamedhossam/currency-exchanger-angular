@@ -1,30 +1,39 @@
-<form class="box" (ngSubmit)="handleConvert()">
+<div class="box">
   <div class="row">
     <table>
       <tr>
         <td>
           <h6>Amount</h6>
           <input
-            type="text"
-            [value]="initialValue"
-            (keyup)="onChange($event)"
+            type="float"
+            (change)="input3(input.value)"
+            onkeypress="return (event.charCode == 8 || event.charCode==0) ?null : event.charCode>=46 && event.charCode <=57 && event.charCode!=47"
+            #input
           />
         </td>
+
         <td style="justify-items: stretch">
           <div class="currency-selector">
             <div>
               <h6>From</h6>
-              <select [value]="fromCurrency" (change)="onChange($event)">
-                <option *ngFor="let option of currencyOptions" [value]="option">
-                  {{ option }}
-                </option>
+              <select
+                #from
+                [value]="fromCurrency"
+                (change)="fromSelected(from.value)"
+                style="pointer-events: initial; background-color: #626466"
+              >
+                <option [selected]="fromCurrency" [value]="'USD'">USD</option>
               </select>
             </div>
             <p>⬅️➡️</p>
             <div>
               <h6>To</h6>
-              <select [value]="toCurrency" (change)="onChange($event)">
-                <option *ngFor="let option of currencyOptions" [value]="option">
+              <select #to [value]="toCurrency" (change)="toSelected(to.value)">
+                <option
+                  *ngFor="let option of currencies"
+                  [value]="option"
+                  [selected]="option === toCurrency"
+                >
                   {{ option }}
                 </option>
               </select>
@@ -35,17 +44,34 @@
       <tr>
         <td></td>
         <td class="position">
-          <button class="button" type="submit">Convert</button>
+          <button class="button" (click)="handleConvert()">Convert</button>
         </td>
       </tr>
       <tr>
         <td>
           <small class="default-result">
-            1 {{ fromCurrency }} = 1.2 {{ toCurrency }}
+            {{
+              "1 " +
+                fromCurrency +
+                " = " +
+                currencyData[toCurrency].toFixed(3) +
+                " " +
+                toCurrency
+            }}
           </small>
         </td>
         <td class="position">
-          <strong class="result"> 1 {{ fromCurrency }} = 1 eur </strong>
+          <strong class="result"
+            >{{
+              Amount +
+                " " +
+                fromCurrency +
+                " = " +
+                Result.toFixed(3) +
+                " " +
+                toCurrency
+            }}
+          </strong>
           <button class="button" onClick="{}" style="display: initial">
             More Details
           </button>
@@ -53,4 +79,4 @@
       </tr>
     </table>
   </div>
-</form>
+</div>

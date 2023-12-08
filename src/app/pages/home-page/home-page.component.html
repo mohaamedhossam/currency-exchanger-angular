@@ -51,13 +51,7 @@
     </table>
   </div>
 </form> -->
-<app-currency-converter-form
-  [initialValue]="10"
-  [fromCurrency]="'USD'"
-  [toCurrency]="'EUR'"
-  [currencyOptions]="['USD', 'EUR', 'JPY']"
-  (convertCurrency)="handleConversion($event)"
-></app-currency-converter-form>
+<app-currency-converter-form></app-currency-converter-form>
 
 <div class="box2">
   <table>
