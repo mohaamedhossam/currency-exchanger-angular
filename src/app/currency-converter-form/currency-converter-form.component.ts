@@ -3,10 +3,20 @@ import axios from 'axios';
 import { CurrencyRates } from '../Models/Result';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import {
+  CurrencyConverterService,
+  currencyConverterServiceFactory,
+} from '../currency-converter.service';
 @Component({
   selector: 'app-currency-converter-form',
   standalone: true,
   imports: [CommonModule],
+  providers: [
+    {
+      provide: CurrencyConverterService,
+      useFactory: currencyConverterServiceFactory,
+    },
+  ],
   templateUrl: './currency-converter-form.component.html',
   styleUrl: './currency-converter-form.component.css',
 })
@@ -14,7 +24,10 @@ export class CurrencyConverterFormComponent {
   @Input() toCurrency = 'EUR'; // Default to EUR
   @Input() fromCurrency = 'USD'; // Default to USD
   @Input() Amount: number = 1; // Default amount
-  constructor(private router: Router) {}
+  constructor(
+    private currencyConverterService: CurrencyConverterService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     // this.toCurrency = 'EUR';
     // this.fromCurrency = 'USD';
@@ -46,22 +59,27 @@ export class CurrencyConverterFormComponent {
   toSelected(value: string): void {
     this.toCurrency = value;
     console.log(this.toCurrency);
+    this.handleConvert();
   }
   fromSelected(value: string): void {
     this.fromCurrency = value;
     console.log(this.fromCurrency);
+    this.handleConvert();
   }
 
   input3(value: any) {
     this.Amount = value;
     console.log(this.Amount);
+    this.handleConvert();
   }
   handleConvert() {
     this.Result = this.Amount * this.currencyData[this.toCurrency];
     console.log(this.Result);
   }
   handleMoreDetailsClick() {
-    const url = `details?toCurrency=${this.toCurrency}&fromCurrency=${this.fromCurrency}&amount=${this.Amount}`;
+    this.currencyConverterService.setToCurrency(this.toCurrency);
+    this.currencyConverterService.setFromCurrency(this.fromCurrency);
+    this.currencyConverterService.setAmount(this.Amount);
     this.router.navigate(['./details']);
   }
   // public Results: CurrencyRates[] = [];

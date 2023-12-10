@@ -1,7 +1,7 @@
 <p>details works!</p>
 
 <app-currency-converter-form
-  toCurrency="toCurrency"
-  fromCurrency="fromCurrency"
-  [Amount]="Amount"
+  [toCurrency]="currencyConverterService.getToCurrency()"
+  [fromCurrency]="currencyConverterService.getFromCurrency()"
+  [Amount]="currencyConverterService.getAmount()"
 ></app-currency-converter-form>

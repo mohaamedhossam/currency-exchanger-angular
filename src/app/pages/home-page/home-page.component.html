@@ -52,9 +52,9 @@
   </div>
 </form> -->
 <app-currency-converter-form
-  toCurrency="JPY"
-  fromCurrency="USD"
-  [Amount]="1"
+  [toCurrency]="currencyConverterService.getToCurrency()"
+  [fromCurrency]="currencyConverterService.getFromCurrency()"
+  [Amount]="currencyConverterService.getAmount()"
 ></app-currency-converter-form>
 
 <div class="box2">
