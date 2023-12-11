@@ -1,7 +1,17 @@
-<p>details works!</p>
+<div class="belowHeader">
+  <h1 class="FromDetails">{{ name }}</h1>
+  <button class="button" (click)="handleBackHome()">Back to Home</button>
+</div>
 
 <app-currency-converter-form
   [toCurrency]="currencyConverterService.getToCurrency()"
   [fromCurrency]="currencyConverterService.getFromCurrency()"
   [Amount]="currencyConverterService.getAmount()"
+  [isInDetails]="true"
 ></app-currency-converter-form>
+<div class="box2">
+  <h3>
+    You have changed from : {{ currencyConverterService.getFromCurrency() }} to
+    : {{ currencyConverterService.getToCurrency() }}
+  </h3>
+</div>

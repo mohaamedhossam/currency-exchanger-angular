@@ -1,4 +1,5 @@
 import { Component, Input, NgModule } from '@angular/core';
+import { NgForOf } from '@angular/common';
 import { CurrencyConverterFormComponent } from '../../currency-converter-form/currency-converter-form.component';
 import { CurrencyConverterService } from '../../currency-converter.service';
 import { currencyConverterServiceFactory } from '../../currency-converter.service';
@@ -6,7 +7,7 @@ import { currencyConverterServiceFactory } from '../../currency-converter.servic
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CurrencyConverterFormComponent],
+  imports: [CurrencyConverterFormComponent, NgForOf],
   providers: [
     {
       provide: CurrencyConverterService,
@@ -19,6 +20,11 @@ import { currencyConverterServiceFactory } from '../../currency-converter.servic
 })
 export class HomePageComponent {
   constructor(public currencyConverterService: CurrencyConverterService) {}
+  ninePopularCurr: string[][] = [
+    ['USD', 'EUR', 'CAD'],
+    ['BRL', 'CNY', 'JPY'],
+    ['AUD', 'RUB', 'SEK'],
+  ];
 
   // @Input() Amount: number = 1;
   // handleConversion(event: any): void {

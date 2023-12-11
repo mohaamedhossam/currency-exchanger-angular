@@ -59,65 +59,84 @@
 
 <div class="box2">
   <table>
-    <tr>
-      <td>
+    <tr *ngFor="let row of ninePopularCurr; let i = index">
+      <td *ngFor="let item of row; let j = index">
         <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
-        </div>
-      </td>
-      <td>
-        <div>
-          <h6>usd</h6>
-          <p>100</p>
+          <h6>
+            {{ item }}
+            <p>
+              {{ currencyConverterService.getCurrencyData()[item].toFixed(3) }}
+            </p>
+          </h6>
         </div>
       </td>
     </tr>
   </table>
+  <!-- <table>
+    <tr>
+      <td>
+        <div>
+          <h6>{{ ninePopularCurr[0][0] }}</h6>
+          <p>
+            {{
+              currencyConverterService.getAmount() *
+                currencydata[ninePopularCurr[0][0]]
+            }}
+          </p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h6>usd</h6>
+          <p>100</p>
+        </div>
+      </td>
+    </tr>
+  </table> -->
 </div>

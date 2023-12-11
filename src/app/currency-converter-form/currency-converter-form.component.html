@@ -21,7 +21,10 @@
                 #from
                 [value]="fromCurrency"
                 (change)="fromSelected(from.value)"
-                style="pointer-events: initial; background-color: #626466"
+                [ngStyle]="{
+                  'pointer-events': isInDetails && 'none',
+                  'background-color': isInDetails && '#626466'
+                }"
               >
                 <option [selected]="fromCurrency" [value]="'USD'">USD</option>
               </select>
@@ -68,7 +71,7 @@
                 " " +
                 fromCurrency +
                 " = " +
-                Result.toFixed(3) +
+                handleConvert().toFixed(3) +
                 " " +
                 toCurrency
             }}
@@ -76,7 +79,7 @@
           <button
             class="button"
             (click)="handleMoreDetailsClick()"
-            style="display: initial"
+            *ngIf="!isInDetails"
           >
             More Details
           </button>

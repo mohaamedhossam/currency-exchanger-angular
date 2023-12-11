@@ -2,6 +2,7 @@ export class CurrencyConverterService {
   private toCurrency: string = 'EUR'; // Default to EUR
   private fromCurrency: string = 'USD'; // Default to USD
   private amount: number = 1; // Default amount
+  private currencyData: { [currency: string]: number } = {};
 
   constructor() {}
 
@@ -16,6 +17,9 @@ export class CurrencyConverterService {
   setAmount(amount: number): void {
     this.amount = amount;
   }
+  setCurrencyData(data: { [currency: string]: number }): void {
+    this.currencyData = data;
+  }
 
   getToCurrency(): string {
     return this.toCurrency;
@@ -27,6 +31,9 @@ export class CurrencyConverterService {
 
   getAmount(): number {
     return this.amount;
+  }
+  getCurrencyData(): { [currency: string]: number } {
+    return this.currencyData;
   }
 }
 
