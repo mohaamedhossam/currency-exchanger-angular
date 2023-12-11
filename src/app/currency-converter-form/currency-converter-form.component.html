@@ -5,10 +5,11 @@
         <td>
           <h6>Amount</h6>
           <input
-            type="float"
+            type="number"
             [value]="Amount"
             (change)="input3(input.value)"
-            onkeypress="return (event.charCode == 8 || event.charCode==0) ?null : event.charCode>=46 && event.charCode <=57 && event.charCode!=47"
+            min="1"
+            (keyup)="validateInput(input.value)"
             #input
           />
         </td>
@@ -48,7 +49,13 @@
       <tr>
         <td></td>
         <td class="position">
-          <button class="button" (click)="handleConvert()">Convert</button>
+          <button
+            class="button"
+            [disabled]="!isAllowed"
+            (click)="handleConvert()"
+          >
+            Convert
+          </button>
         </td>
       </tr>
       <tr>
@@ -71,7 +78,7 @@
                 " " +
                 fromCurrency +
                 " = " +
-                handleConvert().toFixed(3) +
+                Result.toFixed(3) +
                 " " +
                 toCurrency
             }}

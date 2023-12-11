@@ -23,7 +23,11 @@ export class CurrencyConverterFormComponent {
   @Input() toCurrency = 'EUR'; // Default to EUR
   @Input() fromCurrency = 'USD'; // Default to USD
   @Input() Amount: number = 1; // Default amount
-  @Input() isInDetails: boolean = false; // Default
+  @Input() isInDetails: boolean = false; // Default "this is flag is in details page or not"
+  toCurr: string = this.toCurrency;
+  fromCurr: string = this.fromCurrency;
+  inAmount: number = this.Amount;
+  isAllowed: boolean = true;
   constructor(
     public currencyConverterService: CurrencyConverterService,
     private router: Router
@@ -43,34 +47,42 @@ export class CurrencyConverterFormComponent {
       this.currencyConverterService.setCurrencyData(this.currencyData);
     });
   }
-  // isInDetails: boolean = this.currencyConverterService.getInDetails();
   public currencyData: { [currency: string]: number } = {};
   public currencies: string[] = [];
   Result: number = 1;
   toSelected(value: string): void {
-    this.toCurrency = value;
+    this.toCurr = value;
     console.log(this.toCurrency);
-    this.currencyConverterService.setToCurrency(this.toCurrency);
-    // this.handleConvert();
   }
   fromSelected(value: string): void {
-    this.fromCurrency = value;
+    this.fromCurr = value;
     console.log(this.fromCurrency);
-    this.currencyConverterService.setFromCurrency(this.fromCurrency);
-    // this.handleConvert();
   }
 
   input3(value: any) {
-    this.Amount = value;
+    this.inAmount = value;
     console.log(this.Amount);
-    this.currencyConverterService.setAmount(this.Amount);
-    // this.handleConvert();
   }
   handleConvert(): number {
+    this.fromCurrency = this.fromCurr;
+    this.toCurrency = this.toCurr;
+    this.Amount = this.inAmount;
+    this.currencyConverterService.setToCurrency(this.toCurrency);
+    this.currencyConverterService.setFromCurrency(this.fromCurrency);
+    this.currencyConverterService.setAmount(this.Amount);
     this.Result = this.Amount * this.currencyData[this.toCurrency];
     return this.Result;
   }
   handleMoreDetailsClick() {
     this.router.navigate(['./details']);
+  }
+  validateInput(value: string) {
+    if (!value || parseInt(value) < 0) {
+      // Display error message disable convert button
+      this.isAllowed = false;
+      alert('Please enter a positive number.');
+    } else {
+      this.isAllowed = true;
+    }
   }
 }

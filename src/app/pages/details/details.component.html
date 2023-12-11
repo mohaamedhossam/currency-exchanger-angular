@@ -14,4 +14,12 @@
     You have changed from : {{ currencyConverterService.getFromCurrency() }} to
     : {{ currencyConverterService.getToCurrency() }}
   </h3>
+  <p>
+    With rate :
+    {{
+      currencyConverterService.getCurrencyData()[
+        currencyConverterService.getToCurrency()
+      ]
+    }}
+  </p>
 </div>

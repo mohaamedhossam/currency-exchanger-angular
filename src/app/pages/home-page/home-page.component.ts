@@ -1,4 +1,4 @@
-import { Component, Input, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { CurrencyConverterFormComponent } from '../../currency-converter-form/currency-converter-form.component';
 import { CurrencyConverterService } from '../../currency-converter.service';
@@ -25,16 +25,4 @@ export class HomePageComponent {
     ['BRL', 'CNY', 'JPY'],
     ['AUD', 'RUB', 'SEK'],
   ];
-
-  // @Input() Amount: number = 1;
-  // handleConversion(event: any): void {
-  //   const { value, from, to } = event;
-  //   const convertedValue = value * 1.2;
-  //   //console.log(`Converted value: ${convertedValue} ${to} from ${from}`);
-  // }
 }
-/*[initialValue]="10"
-  [fromCurrency]="'USD'"
-  [toCurrency]="'EUR'"
-  [currencyOptions]="['USD', 'EUR', 'JPY']"
-  (convertCurrency)="handleConversion($event)" */

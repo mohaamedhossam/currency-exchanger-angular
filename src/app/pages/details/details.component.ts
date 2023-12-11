@@ -39,11 +39,10 @@ export class DetailsComponent {
     axios(
       `https://api.freecurrencyapi.com/v1/currencies?apikey=fca_live_oLf23dmp8n5z4DGEl4D6GYIsRyjJzO95KdwK4Dc9&currencies=${this.fromCurrency}`
     ).then((response) => {
-      const currencyCode = this.fromCurrency; // Replace with desired currency code
+      const currencyCode = this.fromCurrency;
       const data = response.data.data;
       const currencyData = data[currencyCode];
       this.name = currencyData.name;
-      console.log(name);
     });
   }
   handleBackHome(): void {
